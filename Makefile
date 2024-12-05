@@ -3,38 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+         #
+#    By: fgalvez- <fgalvez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/08 14:04:17 by fgalvez-          #+#    #+#              #
-#    Updated: 2024/11/29 13:16:51 by fgalvez-         ###   ########.fr        #
+#    Updated: 2024/12/05 15:02:16 by fgalvez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ========================= VARIABLES GLOBALES =============================== #
 
-NAME = fdf
+NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-CFLAGSMINILIBX = -L minilibx-linux -lmlx -lXext -lX11 -lm
 DEBUGGER = -g3
 RM = rm -f
 NORMINETTE = norminette
 # ========================= DIRECTORIOS Y ARCHIVOS =========================== #
+DIR_HEADERS = Inc/libft Inc/utils Inc
+DIR_PS     = src/
+DIR_UTILS  = Inc/utils
+DIR_LIBFT  = Inc/libft
 
-DIR_HEADERS = Inc/fdf Inc/libft Inc/get_next_line
-DIR_FDF     = Inc/fdf
-DIR_LIBFT   = Inc/libft
-DIR_GNL     = Inc/get_next_line
-HEADERS = $(wildcard $(DIR_FDF)/*.h) \
-          $(wildcard $(DIR_LIBFT)/*.h) \
-          $(wildcard $(DIR_GNL)/*.h)
+HEADERS = $(wildcard $(DIR_HEADERS)/*.h) \
+
 
 DIRSOURCE   = src/
-SOURCES.h = $(wildcard $(DIR_FDF)/*.c) \
-           $(wildcard $(DIR_LIBFT)/*.c) \
-           $(wildcard $(DIR_GNL)/*.c)
+SOURCES.h = $(wildcard $(DIR_UTILS)/*.c) \
+			$(wildcard $(DIR_LIBFT)/*.c) 
+
+
 SOURCES     = $(wildcard $(DIRSOURCE)*.c)
-SRCS        = $(SOURCES) $(SOURCES.h)
+SRCS        = $(SOURCES.h) $(SOURCES) 
 
 OBJSDIR     = ./obj/
 OBJS        = $(addprefix $(OBJSDIR), $(notdir $(SRCS:.c=.o)))
@@ -54,18 +53,23 @@ all: n $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "\n${MAGENTA}Compilando el ejecutable $(NAME)...${RESET}\n"
-	$(CC) $(OBJS) $(CFLAGS) $(CFLAGSMINILIBX) $(DEBUGGER) -o $(NAME)
+	$(CC) $(OBJS) $(CFLAGS) $(DEBUGGER) -o $(NAME)
 	@echo "${CYAN}=================================================================================================================${RESET}"
 	@echo "${GREEN}                                       [✔] $(NAME) successfully compiled.${RESET}                               "
 	@echo "${CYAN}=================================================================================================================${RESET}"
-	@echo "${MAGENTA}You should use: valgrind ./$(NAME) maps/"archive".fdf${RESET}"
+	@echo "${MAGENTA}You should use: valgrind ./$(NAME) argv[1] argv[2] ....${RESET}"
 # ========================= REGLAS PARA LOS OBJETOS ========================== #
 $(OBJSDIR)%.o: $(DIRSOURCE)%.c
 	@mkdir -p $(dir $@)
 	@echo "${CYAN}Compilando objeto: $<${RESET}"
 	$(CC) $(CFLAGS) $(addprefix -I, $(DIR_HEADERS)) -c $< -o $@
 
-$(OBJSDIR)%.o: $(DIR_FDF)/%.c
+$(OBJSDIR)%.o: $(DIR_PS)/%.c
+	@mkdir -p $(dir $@)
+	@echo "${CYAN}Compilando objeto: $<${RESET}"
+	$(CC) $(CFLAGS) $(addprefix -I, $(DIR_HEADERS)) -c $< -o $@
+
+$(OBJSDIR)%.o: $(DIR_UTILS)/%.c
 	@mkdir -p $(dir $@)
 	@echo "${CYAN}Compilando objeto: $<${RESET}"
 	$(CC) $(CFLAGS) $(addprefix -I, $(DIR_HEADERS)) -c $< -o $@
@@ -75,10 +79,6 @@ $(OBJSDIR)%.o: $(DIR_LIBFT)/%.c
 	@echo "${CYAN}Compilando objeto: $<${RESET}"
 	$(CC) $(CFLAGS) $(addprefix -I, $(DIR_HEADERS)) -c $< -o $@
 
-$(OBJSDIR)%.o: $(DIR_GNL)/%.c
-	@mkdir -p $(dir $@)
-	@echo "${CYAN}Compilando objeto: $<${RESET}"
-	$(CC) $(CFLAGS) $(addprefix -I, $(DIR_HEADERS)) -c $< -o $@
 
 # ========================= LIMPIEZA DE ARCHIVOS ============================= #
 
@@ -97,7 +97,7 @@ n:
 	@echo "${GREEN}         Norminette.      ${RESET}"
 	@echo "${CYAN}=================================${RESET}"
 	@echo "\n"
-	-$(NORMINETTE) $(HEADERS) $(SRCS) $(SOURCES2)
+	-$(NORMINETTE) $(HEADERS) $(SRCS) 
 	@echo "\n"
 	@echo "${GREEN}[✔] Norminette completa.${RESET}\n"
 
