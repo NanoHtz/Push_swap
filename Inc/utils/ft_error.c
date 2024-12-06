@@ -37,3 +37,10 @@ int	ft_error(const char *str)
 	write(1, "\033[31m", 4);
 	return (-1);
 }
+
+void	ft_void_error(const char *str)
+{
+	write(1, "\033[31m", 5);
+	ft_strendl(str);
+	write(1, "\033[31m", 4);
+}

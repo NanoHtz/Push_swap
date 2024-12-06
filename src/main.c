@@ -11,15 +11,24 @@
 /* ************************************************************************** */
 
 #include "../Inc/push_swap.h"
-#include <stdio.h>
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack;
+	int		i;
 
+	i = 0;
 	if (ac < 3)
 		return (ft_error(ARGS_ERROR));
+	while (i < (ac - 1))
+		i++;
+	stack = malloc(sizeof(stack) * i);
+	if (!stack)
+		return (ft_error(MEM_ERROR));
+	printf("Han sido %d argumentos.\n", i);
+	stack->size = i;
 	stack->top = NULL;
 	stack->size = 0;
 	validate(ac, av, stack);
+	printf_stack(stack);
 }

@@ -29,11 +29,11 @@ HEADERS = $(wildcard $(DIR_HEADERS)/*.h) \
 
 DIRSOURCE   = src/
 SOURCES.h = $(wildcard $(DIR_UTILS)/*.c) \
-			$(wildcard $(DIR_LIBFT)/*.c) 
+			$(wildcard $(DIR_LIBFT)/*.c)
 
 
 SOURCES     = $(wildcard $(DIRSOURCE)*.c)
-SRCS        = $(SOURCES.h) $(SOURCES) 
+SRCS        = $(SOURCES.h) $(SOURCES)
 
 OBJSDIR     = ./obj/
 OBJS        = $(addprefix $(OBJSDIR), $(notdir $(SRCS:.c=.o)))
@@ -57,7 +57,7 @@ $(NAME): $(OBJS)
 	@echo "${CYAN}=================================================================================================================${RESET}"
 	@echo "${GREEN}                                       [✔] $(NAME) successfully compiled.${RESET}                               "
 	@echo "${CYAN}=================================================================================================================${RESET}"
-	@echo "${MAGENTA}You should use: valgrind ./$(NAME) argv[1] argv[2] ....${RESET}"
+	@echo "${MAGENTA}You should use: valgrind --leak-check=full -s./$(NAME) argv[1] argv[2] ....${RESET}"
 # ========================= REGLAS PARA LOS OBJETOS ========================== #
 $(OBJSDIR)%.o: $(DIRSOURCE)%.c
 	@mkdir -p $(dir $@)
@@ -97,7 +97,7 @@ n:
 	@echo "${GREEN}         Norminette.      ${RESET}"
 	@echo "${CYAN}=================================${RESET}"
 	@echo "\n"
-	-$(NORMINETTE) $(HEADERS) $(SRCS) 
+	-$(NORMINETTE) $(HEADERS) $(SRCS)
 	@echo "\n"
 	@echo "${GREEN}[✔] Norminette completa.${RESET}\n"
 

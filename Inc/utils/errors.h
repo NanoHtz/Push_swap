@@ -15,9 +15,16 @@
 
 # define ARGS_ERROR "There must be 2 or more arguments."
 # define NO_NUMBER "The argument entered is not a number"
+# define MEM_ERROR "Error in allocate stack"
+# define PUSH_ERROR "Error in push function"
+# define MIN_ERROR "A number less than the minimum has been entered"
+# define MAX_ERROR "A number greater than the maximum has been entered"
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 # include <unistd.h>
 
 int		ft_error(const char *str);
+void	ft_void_error(const char *str);
 
 #endif

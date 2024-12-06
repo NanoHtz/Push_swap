@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "../Inc/push_swap.h"
-#include <stdio.h>
 
 //comprobar duplicados
 //atoi
-//
+//minimos y maximos
+
 
 int	is_number(char	*av)
 {
@@ -33,6 +33,24 @@ int	is_number(char	*av)
 	return (1);
 }
 
+int limits(const char *str)
+{
+	char *endptr;
+	long nbr = strtol(str, &endptr, 10);
+
+	if (*endptr != '\0') {
+		printf("Error: La cadena contiene caracteres no numéricos.\n");
+		return 0;
+	}
+	if (nbr > INT_MAX) {
+		printf("Error: El número es mayor que el límite máximo de int (%d)\n", INT_MAX);
+		return 0;
+	} else if (nbr < INT_MIN) {
+		printf("Error: El número es menor que el límite mínimo de int (%ld)\n", INT_MIN);
+		return 0;
+	}
+	return 1;
+}
 
 int	validate(int ac, char **av, t_stack *stack)
 {
@@ -45,9 +63,9 @@ int	validate(int ac, char **av, t_stack *stack)
 		if (is_number(av[i]) == 0)
 			return (ft_error(NO_NUMBER));
 		nbr = ft_atoi(av[i]);
+		//if (limits(nbr) == 0)
 		push(stack, nbr);
 		i++;
 	}
 	return (1);
 }
-

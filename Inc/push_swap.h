@@ -15,6 +15,8 @@
 
 # include "utils/errors.h"
 # include "libft/libft.h"
+# include <stdlib.h>//malloc
+# include <stdio.h>//Para pruebas de printf, de momento, borrar al terminar.
 
 typedef struct Node
 {
@@ -28,7 +30,12 @@ typedef struct Stack
 	int		size;
 }				t_stack;
 
+//Arguments
 int		validate(int ac, char **av, t_stack *stack);
 int		is_number(char	*av);
+int		limits(const char *str);
+//Stacks
+void	push(t_stack *stack, int value);
+void	printf_stack(t_stack *stack);
 
 #endif
