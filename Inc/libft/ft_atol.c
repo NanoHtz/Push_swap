@@ -12,24 +12,41 @@
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	skip_whitespaces(const char *nptr, int *i)
 {
-	int	result;
-	int	i;
+	while (nptr[*i] == ' ' || nptr[*i] == '\n' || nptr[*i] == '\t'
+		|| nptr[*i] == '\v' || nptr[*i] == '\f' || nptr[*i] == '\r')
+		(*i)++;
+	return (*i);
+}
+
+int	handle_sign(const char *nptr, int *i)
+{
 	int	sign;
+
+	sign = 1;
+	if (nptr[*i] == '-' || nptr[*i] == '+')
+	{
+		if (nptr[*i] == '-')
+			sign = -1;
+		(*i)++;
+	}
+	return (sign);
+}
+
+long	ft_atol(const char *nptr)
+{
+	long	result;
+	int		i;
+	int		sign;
 
 	result = 0;
 	i = 0;
 	sign = 1;
-	while (nptr[i] == ' ' || nptr[i] == '\n' || nptr[i] == '\t'
-		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
+	if (nptr == NULL)
+		return (0);
+	skip_whitespaces(nptr, &i);
+	sign = handle_sign(nptr, &i);
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = (result * 10) + (nptr[i] - '0');

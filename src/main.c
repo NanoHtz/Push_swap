@@ -10,25 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+Para pocos argumentos, bubble sort o insertion sort
+Para mas argumentos, quick sort o merge sort
+-Crear la segunda pila-check
+-Implementar als operaciones-check
+-Algoritmo
+-Pruebas de rendimiento
+*/
+//Es posible que no nos interese para nada el tamaño de la pila.
+//Manejar los errores implica
+//Funciones free, espabila./psh
 #include "../Inc/push_swap.h"
 
 int	main(int ac, char **av)
 {
-	t_stack	*stack;
+	t_stack	*a_stack;
+	t_stack	*b_stack;
 	int		i;
+	int		moves;
 
 	i = 0;
+	moves = 0;
 	if (ac < 3)
 		return (ft_error(ARGS_ERROR));
 	while (i < (ac - 1))
 		i++;
-	stack = malloc(sizeof(stack) * i);
-	if (!stack)
-		return (ft_error(MEM_ERROR));
-	printf("Han sido %d argumentos.\n", i);
-	stack->size = i;
-	stack->top = NULL;
-	stack->size = 0;
-	validate(ac, av, stack);
-	printf_stack(stack);
+	printf("Se han introducido %d argumentos\n", i);
+	a_stack = init_stack(i);
+	if (validate_and_push(ac, av, a_stack) == -1)
+		return (ft_error(VALIDATE));
+	ft_success(VALID);
+	b_stack = init_stack(i);
+	printf("stack a:\n");
+	print_stack(a_stack);
+	if (i == 3)
+		moves = three_numbers(a_stack);
+	printf("stack a:\n");
+	print_stack(a_stack);
+	/*
+	pb(a_stack, b_stack);
+	pb(a_stack, b_stack);
+	print_stack(a_stack);
+	printf("stack b\n");
+	*/
+	printf("stack b:\n");
+	print_stack(b_stack);
+	printf("movimientos:%d\n", moves);
+	//(void)b_stack;
 }

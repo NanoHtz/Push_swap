@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 18:55:21 by fgalvez-          #+#    #+#             */
-/*   Updated: 2024/12/05 14:53:53 by fgalvez-         ###   ########.fr       */
+/*   Created: 2024/11/21 21:16:53 by fgalvez-          #+#    #+#             */
+/*   Updated: 2024/12/05 13:54:38 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "errors.h"
 
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
-# include "../utils/errors.h"
-
-long	ft_atol(const char *str);
-int		ft_isdigit(char c);
-
-#endif
+void	ft_warning(const char *str)
+{
+	write(1, "\033[33m", 5);
+	ft_strendl(str);
+	write(1, "\033[0m", 4);
+}

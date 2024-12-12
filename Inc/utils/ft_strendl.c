@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgalvez- <fgalvez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 18:55:21 by fgalvez-          #+#    #+#             */
-/*   Updated: 2024/12/05 14:53:53 by fgalvez-         ###   ########.fr       */
+/*   Created: 2024/12/08 13:32:09 by fgalvez-          #+#    #+#             */
+/*   Updated: 2024/12/08 13:32:09 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "errors.h"
 
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
-# include "../utils/errors.h"
+void	ft_strendl(const char *str)
+{
+	int	i;
 
-long	ft_atol(const char *str);
-int		ft_isdigit(char c);
-
-#endif
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
+}

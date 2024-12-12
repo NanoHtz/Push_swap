@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_value_errors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 15:44:56 by fgalvez-          #+#    #+#             */
-/*   Updated: 2024/12/07 15:44:56 by fgalvez-         ###   ########.fr       */
+/*   Created: 2024/12/08 13:31:08 by fgalvez-          #+#    #+#             */
+/*   Updated: 2024/12/08 13:31:08 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/push_swap.h"
+#include "errors.h"
 
-t_stack	*ft_t_stack_error(const char *str)
+int	ft_min_error(const char *str)
 {
 	write(1, "\033[31m", 5);
 	ft_strendl(str);
 	write(1, "\033[0m", 4);
-	return (NULL);
+	return (INT_MIN);
+}
+
+int	ft_max_error(const char *str)
+{
+	write(1, "\033[31m", 5);
+	ft_strendl(str);
+	write(1, "\033[0m", 4);
+	return (INT_MAX);
 }

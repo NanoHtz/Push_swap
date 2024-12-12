@@ -31,11 +31,29 @@ typedef struct Stack
 }				t_stack;
 
 //Arguments
-int		validate(int ac, char **av, t_stack *stack);
+int		validate_and_push(int ac, char **av, t_stack *stack);
 int		is_number(char	*av);
 int		limits(const char *str);
 //Stacks
 void	push(t_stack *stack, int value);
-void	printf_stack(t_stack *stack);
-
+t_stack	*init_stack(int size);
+int		print_stack(t_stack *stack);
+//operators
+void	sa(t_stack *a_stack);
+void	sb(t_stack *b_stack);
+void	ss(t_stack *a_stack, t_stack *b_stack);
+void	pa(t_stack *a_stack, t_stack *b_stack);
+void	pb(t_stack *a_stack, t_stack *b_stack);
+void	ra(t_stack *a_stack);
+void	rb(t_stack *b_stack);
+void	rr(t_stack *a_stack, t_stack *b_stack);
+void	rra(t_stack *a_stack);
+void	rrb(t_stack *b_stack);
+void	rrr(t_stack *a_stack, t_stack *b_stack);
+//utils
+t_stack	*ft_t_stack_error(const char *str);
+//Algoritm
+int insertion_sort(t_stack *a_stack, t_stack *b_stack);
+int three_numbers(t_stack *a_stack);
+//int insertion_sortb(t_stack *a_stack, t_stack *b_stack);
 #endif

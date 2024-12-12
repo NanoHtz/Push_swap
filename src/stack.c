@@ -12,6 +12,18 @@
 
 #include "../Inc/push_swap.h"
 
+t_stack	*init_stack(int size)
+{
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (ft_t_stack_error(MEM_ERROR));
+	stack->size = size;
+	stack->top = NULL;
+	return (stack);
+}
+
 void	push(t_stack *stack, int value)
 {
 	t_node	*new_node;
@@ -24,17 +36,18 @@ void	push(t_stack *stack, int value)
 	stack->top = new_node;
 }
 
-void	printf_stack(t_stack *stack)
+int	print_stack(t_stack *stack)
 {
 	int		i;
 	t_node	*node;
 
-	i = 0;
 	node = stack->top;
+	i = 1;
 	while (node != NULL)
 	{
-		printf("El elemento %d guardado en la pila es: %d\n", i, node->data);
+		printf("El elemento %d es: %d\n ", i, node->data);
 		node = node->next;
 		i++;
 	}
+	return (i);
 }

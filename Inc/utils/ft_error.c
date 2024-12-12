@@ -12,35 +12,25 @@
 
 #include "errors.h"
 
-/*Write string in terminal follow with newline*/
-void	ft_strendl(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	write(1, "\n", 1);
-}
-/*Personalizar esta funcion con: valor de retorno, fd, color,
-argumentos variables Para ello quizas deba recibir y devolver
-una estructura
-ademas de repasar primero la lista de argumentos variables*/
-
 int	ft_error(const char *str)
 {
 	write(1, "\033[31m", 5);
 	ft_strendl(str);
-	write(1, "\033[31m", 4);
+	write(1, "\033[0m", 4);
 	return (-1);
+}
+
+int	*ft_ptr_error(const char *str)
+{
+	write(1, "\033[31m", 5);
+	ft_strendl(str);
+	write(1, "\033[0m", 4);
+	return (NULL);
 }
 
 void	ft_void_error(const char *str)
 {
 	write(1, "\033[31m", 5);
 	ft_strendl(str);
-	write(1, "\033[31m", 4);
+	write(1, "\033[0m", 4);
 }
