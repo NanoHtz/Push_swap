@@ -12,6 +12,9 @@
 
 #include "../Inc/push_swap.h"
 
+//Desplaza hacia abajo todos los elementos del stack,
+//el ultimo pasa a ser el primero
+
 void	rra(t_stack *a_stack)
 {
 	t_node	*last;
@@ -28,6 +31,7 @@ void	rra(t_stack *a_stack)
 	second_last->next = NULL;
 	last->next = a_stack->top;
 	a_stack->top = last;
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b_stack)
@@ -46,6 +50,7 @@ void	rrb(t_stack *b_stack)
 	second_last->next = NULL;
 	last->next = b_stack->top;
 	b_stack->top = last;
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a_stack, t_stack *b_stack)

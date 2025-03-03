@@ -13,7 +13,7 @@
 #ifndef ERRORS_H
 # define ERRORS_H
 
-# define ARGS_ERROR "There must be 2 or more arguments."
+# define ARGS_ERROR "There must be 3 or more arguments."
 # define NO_NUMBER "The argument entered is not a number"
 # define MEM_ERROR "Error in allocate stack"
 # define PUSH_ERROR "Error in push function"
@@ -23,6 +23,8 @@
 # define DUPLICATE "The arguments are duplicated"
 # define VALIDATE "Error in validate function"
 # define VALID "All arguments are valid"
+# define NO_ORDER "It is not ordered"
+# define ORDER "It's already ordered"
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 

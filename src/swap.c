@@ -12,6 +12,8 @@
 
 #include "../Inc/push_swap.h"
 
+//Cambia los valores del primer y el segundo elemento.
+
 void	sa(t_stack *a_stack)
 {
 	t_node	*first;

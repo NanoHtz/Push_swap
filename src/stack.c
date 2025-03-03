@@ -24,18 +24,6 @@ t_stack	*init_stack(int size)
 	return (stack);
 }
 
-void	push(t_stack *stack, int value)
-{
-	t_node	*new_node;
-
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (ft_void_error(PUSH_ERROR));
-	new_node->data = value;
-	new_node->next = stack->top;
-	stack->top = new_node;
-}
-
 int	print_stack(t_stack *stack)
 {
 	int		i;
@@ -50,4 +38,45 @@ int	print_stack(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+t_node	*last(t_stack *stack)
+{
+	t_node	*last;
+
+	last = stack->top;
+	while (last != NULL && last->next != NULL)
+		last = last->next;
+	return (last);
+}
+
+t_group	*init_nodes(t_stack *a_stack, t_stack *b_stack)
+{
+	t_group	*nodes;
+
+	nodes = (t_group *)malloc(sizeof(t_group));
+	if (nodes == NULL)
+		return (NULL);
+	nodes->a_init = a_stack->top;
+	nodes->b_init = b_stack->top;
+	nodes->a_last = last(a_stack);
+	nodes->b_last = last(b_stack);
+	return (nodes);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack)
+		return ;
+	current = stack->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack);
 }

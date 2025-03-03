@@ -12,6 +12,9 @@
 
 #include "../Inc/push_swap.h"
 
+//Desplaza hacia arriba todos los elementos del stack,
+// el primero pasa a ser el último
+
 void	ra(t_stack *a_stack)
 {
 	t_node	*first;
