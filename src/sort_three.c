@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 19:05:45 by fgalvez-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:05:45 by fgalvez-         ###   ########.fr       */
+/*   Created: 2025/05/11 09:07:08 by fgalvez-          #+#    #+#             */
+/*   Updated: 2025/05/11 09:07:08 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push_swap.h"
 
-int	abs_val(int x)
+void	sort_three(t_stack *stack)
 {
-	if (x < 0)
-		return (-x);
-	return (x);
-}
+	int	biggest;
 
-void	free_args(char **args, int ac)
-{
-	if (ac == 2)
-		ft_free_split(args);
+	if (is_sorted(stack) == 1)
+		return ;
+	biggest = biggest_index(stack);
+	if (stack->top->index == biggest)
+		ra(stack);
+	else if (stack->top->next && stack->top->next->index == biggest)
+		rra(stack);
+	if (stack->top->index > stack->top->next->index)
+		sa(stack);
 }

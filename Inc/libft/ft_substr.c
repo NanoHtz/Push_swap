@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 19:05:45 by fgalvez-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:05:45 by fgalvez-         ###   ########.fr       */
+/*   Created: 2024/03/22 18:23:53 by fgalvez-          #+#    #+#             */
+/*   Updated: 2024/03/22 18:23:53 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/push_swap.h"
+#include "libft.h"
 
-int	abs_val(int x)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	if (x < 0)
-		return (-x);
-	return (x);
-}
+	size_t	i;
+	char	*str;
 
-void	free_args(char **args, int ac)
-{
-	if (ac == 2)
-		ft_free_split(args);
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	return (str);
 }

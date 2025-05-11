@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 19:05:45 by fgalvez-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:05:45 by fgalvez-         ###   ########.fr       */
+/*   Created: 2024/01/15 17:48:05 by fgalvez-          #+#    #+#             */
+/*   Updated: 2024/01/15 17:48:05 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/push_swap.h"
+#include "libft.h"
 
-int	abs_val(int x)
+size_t	ft_strlen(const char *str)
 {
-	if (x < 0)
-		return (-x);
-	return (x);
-}
+	size_t	i;
 
-void	free_args(char **args, int ac)
-{
-	if (ac == 2)
-		ft_free_split(args);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

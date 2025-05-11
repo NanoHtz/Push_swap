@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operators.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 14:02:37 by fgalvez-          #+#    #+#             */
-/*   Updated: 2024/12/07 14:02:37 by fgalvez-         ###   ########.fr       */
+/*   Created: 2025/05/09 19:36:57 by fgalvez-          #+#    #+#             */
+/*   Updated: 2025/05/09 19:36:57 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,4 @@ void	sb(t_stack *b_stack)
 	second->next = first;
 	b_stack->top = second;
 	write(1, "sb\n", 3);
-}
-
-void	ss(t_stack *a_stack, t_stack *b_stack)
-{
-	sa(a_stack);
-	sb(b_stack);
 }

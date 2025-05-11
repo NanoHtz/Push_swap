@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 15:10:00 by fgalvez-          #+#    #+#             */
-/*   Updated: 2024/12/07 15:10:00 by fgalvez-         ###   ########.fr       */
+/*   Created: 2025/05/09 19:36:04 by fgalvez-          #+#    #+#             */
+/*   Updated: 2025/05/09 19:36:04 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	rra(t_stack *a_stack)
 	t_node	*second_last;
 
 	if (!a_stack || !a_stack->top || !a_stack->top->next)
-		return (ft_void_error(FEW_NODES));
+		return ;
 	last = a_stack->top;
 	while (last->next)
 	{
@@ -40,7 +40,7 @@ void	rrb(t_stack *b_stack)
 	t_node	*second_last;
 
 	if (!b_stack || !b_stack->top || !b_stack->top->next)
-		return (ft_void_error(FEW_NODES));
+		return ;
 	last = b_stack->top;
 	while (last->next)
 	{
@@ -53,8 +53,8 @@ void	rrb(t_stack *b_stack)
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a_stack, t_stack *b_stack)
+void	rotate_down_to_target(t_stack *stack, t_node *target)
 {
-	rra(a_stack);
-	rrb(b_stack);
+	while (stack->top != target)
+		rra(stack);
 }

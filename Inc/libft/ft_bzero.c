@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fgalvez- <fgalvez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 19:05:45 by fgalvez-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:05:45 by fgalvez-         ###   ########.fr       */
+/*   Created: 2024/03/22 11:31:04 by fgalvez-          #+#    #+#             */
+/*   Updated: 2024/03/25 18:21:35 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Inc/push_swap.h"
+#include "libft.h"
 
-int	abs_val(int x)
+void	ft_bzero(void *s, size_t n)
 {
-	if (x < 0)
-		return (-x);
-	return (x);
-}
+	char	*aux;
 
-void	free_args(char **args, int ac)
-{
-	if (ac == 2)
-		ft_free_split(args);
+	aux = (char *) s;
+	while (n > 0)
+	{
+		*aux = 0;
+		n--;
+		aux++;
+	}
 }

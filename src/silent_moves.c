@@ -1,21 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   silent_moves.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 19:36:31 by fgalvez-          #+#    #+#             */
-/*   Updated: 2025/05/09 19:36:31 by fgalvez-         ###   ########.fr       */
+/*   Created: 2025/05/11 18:16:42 by fgalvez-          #+#    #+#             */
+/*   Updated: 2025/05/11 18:16:42 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push_swap.h"
 
-//Desplaza hacia arriba todos los elementos del stack,
-// el primero pasa a ser el último
+void	silent_rra(t_stack *a_stack)
+{
+	t_node	*last;
+	t_node	*second_last;
 
-void	ra(t_stack *a_stack)
+	if (!a_stack || !a_stack->top || !a_stack->top->next)
+		return ;
+	last = a_stack->top;
+	while (last->next)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = a_stack->top;
+	a_stack->top = last;
+}
+
+void	silent_rrb(t_stack *b_stack)
+{
+	t_node	*last;
+	t_node	*second_last;
+
+	if (!b_stack || !b_stack->top || !b_stack->top->next)
+		return ;
+	last = b_stack->top;
+	while (last->next)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = b_stack->top;
+	b_stack->top = last;
+}
+
+void	silent_ra(t_stack *a_stack)
 {
 	t_node	*first;
 	t_node	*last;
@@ -29,10 +62,9 @@ void	ra(t_stack *a_stack)
 	a_stack->top = first->next;
 	first->next = NULL;
 	last->next = first;
-	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack *b_stack)
+void	silent_rb(t_stack *b_stack)
 {
 	t_node	*first;
 	t_node	*last;
@@ -46,11 +78,4 @@ void	rb(t_stack *b_stack)
 	b_stack->top = first->next;
 	first->next = NULL;
 	last->next = first;
-	write(1, "rb\n", 3);
-}
-
-void	rotate_up_to_target(t_stack *stack, t_node *target)
-{
-	while (stack->top != target)
-		ra(stack);
 }
