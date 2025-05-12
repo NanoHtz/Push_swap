@@ -69,7 +69,7 @@ void	big_sort(t_stack *a_stack, t_stack *b_stack)
 	int		chunk_end;
 	int		max_index;
 
-	if (!a_stack || a_stack->size <= 3)
+	if (!a_stack)
 		return ;
 	if (a_stack->size <= 100)
 		chunk_count = 5;

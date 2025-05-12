@@ -18,8 +18,6 @@ void	push_swap(t_stack *a_stack, t_stack *b_stack)
 	{
 		if (a_stack->size <= 5)
 			small_sort(a_stack, b_stack);
-		else if (a_stack->size <= 100)
-			big_sort(a_stack, b_stack);
 		else
 			big_sort(a_stack, b_stack);
 	}
