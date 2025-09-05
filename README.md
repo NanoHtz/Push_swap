@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/NanoHtz/Assets/main/push_swap/banner.svg" alt="push_swap banner">
 </p>
 
-<p align="center"><i>🧩 push_swap (42 Cursus) — Ordena una pila de enteros con un conjunto mínimo de operaciones sobre dos pilas <b>a</b> y <b>b</b>. Bonus: <code>checker</code> para validar secuencias.</i></p>
+<p align="center"><i>🧩 push_swap — Ordena una pila de enteros con un conjunto mínimo de operaciones sobre dos pilas <b>a</b> y <b>b</b>. Bonus: <code>checker</code> para validar secuencias.</i></p>
 
 ---
 
@@ -12,8 +12,6 @@
 - [¿Para qué?](#para-que)
 - [Explicación](#explicacion)
 - [Compilación](#compilacion)
-- [Uso](#uso)
-- [Salida esperada y pruebas](#salida)
 
 ---
 <a id="resumen"></a>
