@@ -53,7 +53,6 @@ Solo puedes usar operaciones sobre dos pilas (**a** y **b**): swaps, pushes y ro
 ---
 
 <a id="explicacion"></a>
-<details>
   <summary><h3>📝 Explicación</h3></summary>
 
 
@@ -109,7 +108,6 @@ Solo puedes usar operaciones sobre dos pilas (**a** y **b**): swaps, pushes y ro
 - Liberar pilas y buffers en **todas** las rutas (incluyendo errores de parseo).  
 - `valgrind --leak-check=full --show-leak-kinds=all ./push_swap ...`
 
-</details>
 
 ---
 
@@ -126,5 +124,10 @@ make clean    # borra .o
 make fclean   # borra .o y binarios
 make re       # recompila desde cero
 ```
-
-
+🏗️ Pruebas
+<br>
+Recomiendo el uso del siguiente tester:
+</br>
+```bash 
+https://github.com/gemartin99/Push-Swap-Tester
+```
