@@ -5,7 +5,9 @@
 
 <p align="center"><i>🧩 push_swap — Ordena una pila de enteros con un conjunto mínimo de operaciones sobre dos pilas <b>a</b> y <b>b</b>. Bonus: <code>checker</code> para validar secuencias.</i></p>
 
----
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NanoHtz/Assets/main/100.png" alt="push_swap nota" height="120">
+</p>
 
 ## Índice
 - [Resumen](#resumen)
@@ -28,6 +30,15 @@ Solo puedes usar operaciones sobre dos pilas (**a** y **b**): swaps, pushes y ro
 
 **Entradas inválidas** → imprimir `Error` en **stderr** y salir con código ≠ 0:
 - No numérico, overflow/underflow de `int`, duplicados, argumentos vacíos o mal formateados.
+
+> Este proyecto sigue la **Norma oficial de 42** para estilo en C (Norminette).
+> En todos los proyectos de 42, el uso de la gran mayoria de bibliotecas esta prohibido, siendo nuestro propio desarrollo libft el sustituto de las funciones básicas. 
+> - Código legible.  
+> - Funciones pequeñas (<25 líneas),
+> - 4 parámetros por función,
+> - Nombres claros en `snake_case` y en inglés.
+> - 1 responsabilidad por función.
+>  - Variables declaradas al inicio del bloque(maximo 4 por función). 
 
 ---
 
